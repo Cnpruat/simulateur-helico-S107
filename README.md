@@ -87,20 +87,16 @@ simulateur-helico-S107/
 
 ---
 
+# 📄 Compte-rendu du projet
 
+Le [compte-rendu](compte-rendu.pdf) décrit plus précisement toutes les méthodes utilisées et moyens mis en place pour en arriver là. 
 
-# 📄 Report
-
-The full explanation of the methodology, modelling, and simulation results is in:
-
-**`CR TP2 Groupe 2.pdf`**
-
-It includes:
-- Physical description of the system  
-- Experimental setup  
-- Lagrangian modelling  
-- Simulation and validation  
-- Commented results  
+Il contient notamment : 
+- Modélisation physique du système 
+- Mise en équation Lagrangienne
+- Manipulations expérimentales et caractérisation
+- Simulation et validation
+- Commentaires sur les résultats
 
 ---
 
