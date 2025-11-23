@@ -58,9 +58,9 @@ Il est possible de modifier le plan de vol par défaut et donc la trajectoire em
 
 1. Ouvrir le modèle [Simulink](Final_sim.slx)
 2. Identifier les blocs **Repeating sequence** en amont des régulateurs PID qui contrôlent respectivement (de haut en bas)
-   - Consigne d'altitude (m)
-   - Consigne de lacet (rad)
-   - Commande du moteur de tangage (V)
+   - Consigne d'altitude [m]
+   - Consigne de lacet [rad]
+   - Commande du moteur de tangage [V]
 3. Définir des points temps-valeur pour chacun de ces blocs pour obtenir un motif qui vous convient. 
 4. Lancer la simulation avec le [programme MATLAB](Final.m) 
 
