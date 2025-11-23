@@ -1,6 +1,8 @@
-# Simulateur d'hélicoptère (MATLAB)
+# 🚁 Simulateur d'hélicoptère (MATLAB)
 
 L'idée de ce projet était de modéliser puis de simuler le fonctionnement d'un hélicoptère de modélisme type [Syma S107](https://www.techpunt.nl/fr/syma-s107g-helicopter.html), en utilisant la mécanique Lagrangienne.
+
+Ce projet était l'objet d'un travaux pratique dont les attendus sont détaillés dans l'[énoncé](énoncé.pdf).
 
 ---
 
@@ -11,67 +13,81 @@ Nous avons ainsi pu implémenter ces équations et caractéristiques dans MATLAB
 
 La démarche complète est détaillée dans le [compte rendu](compte-rendu.pdf). 
 
+---
 
-The repository includes:
-- The complete report (PDF and DOCX)
-- MATLAB scripts
-- Simulink models
-- Figures and plots used in the analysis
+##  Fonctionnalités
+
+- Modèle dynamique Lagrangien de l'hélicoptère sur ses coordonnées (X,Y,Z) et ses angles de lacet (α) et de tangage (β)
+- Asservissement de l'altitude de l'hélicoptère (Z) et de son angle de lacet (α) 
+- Possibilité de définir un [plan de vol](https://youtu.be/C3m0J9K8cA4)
+- Affichage de toutes les variables internes et finales du système
+- Estimation de la consommation de l'hélicoptère sur son vol
+---
+
+## Fonctionnement
+
+Simulateur réalisé et testé sur *MATLAB R2021b*.
+
+1. Ouvrir MATLAB
+2. Ouvrir le [programme principal](Final.m)
+3. Régler les conditions initiales (ligne 42 à 54)
+   ```matlab
+   %Positions et vitesses initiales
+   x0 = 0;                 % [m]
+   x0_p = 0;               % [m/s]
+   y0 = 0;
+   y0_p = 0;
+   z0 = 0;
+   z0_p = 0;
+
+   %Orientations et vitesses angulaires initiales
+   alpha0 = 0;             % [rad]
+   alpha0_p = 0;           % [rad/s]
+   beta0 = 0;
+   beta0_p = 0;
+   ```
+4. Lancer le programme
+
+Tous les affichages apparaissent alors et un [affichage dynamique](https://youtu.be/C3m0J9K8cA4) se lance afin de montrer la trajectoire empruntée par l'hélicoptère.  
 
 ---
 
-# 📁 Repository Structure
+## Modification du plan de vol
+
+Il est possible de modifier le plan de vol par défaut et donc la trajectoire empruntée par l'hélicoptère :
+
+1. Ouvrir le modèle [Simulink](Final_sim.slx)
+2. Identifier les blocs **Repeating sequence** en amont des régulateurs PID qui contrôlent respectivement (de haut en bas)
+   - Consigne d'altitude (m)
+   - Consigne de lacet (rad)
+   - Commande du moteur de tangage (V)
+3. Définir des points temps-valeur pour chacun de ces blocs pour obtenir un motif qui vous convient. 
+4. Lancer la simulation avec le [programme MATLAB](Final.m) 
+
+---
+
+# 📁 Structure du projet
 
 ```
-TP2_Helicoptere/
+simulateur-helico-S107/
 │
-├── CR TP2 Groupe 2.pdf               # Full project report (recommended reading)
-├── CR TP2 Groupe 2.docx              # Editable version of the report
+├── compte-rendu.pdf               # Rapport du projet
+├── énoncé.pdf               # Sujet du TP 
 │
-├── Final.m                           # Main MATLAB script for running the full simulation
-├── Final_sim.slx                     # Main Simulink model
-├── Sim_1D.slx                        # Simplified 1‑D dynamic simulation
+├── Final.m                           # MATLAB principal 
+├── Final_sim.slx                     # Simulink principal
+├── Sim_1D.slx                  # Simulation simplifiée 1-D
+├── Plot/                     # Programmes pour les plots
 │
-├── Assets/                           # Additional resources
-├── Images/                           # Illustrations used for documentation
-├── Plot/                             # Generated plots from simulations
+├── Assets/                   # Ressources additionnelles
+├── Images/                   # Illustrations pour le rapport
 │
-└── MK06 TP2 2026.pdf                 # Assignment / project guidelines
+└── README.md
 ```
 
 ---
 
-# 🚁 Features
 
-- Complete **Lagrangian dynamic model** of a small helicopter  
-- Simulation of:
-  - Linear motion  
-  - Angular motion  
-  - Stabilisation behaviour  
-  - Actuator effects  
-- MATLAB scripts for numerical integration  
-- Simulink models for block‑based simulation  
-- Plots and numerical results included
-
----
-
-# ▶️ How to Use
-
-1. Open MATLAB (R2021a or later recommended).
-2. Add the repository folder to your MATLAB path:
-   ```matlab
-   addpath(genpath('TP2_Helicoptere'));
-   ```
-3. To run the full simulation:
-   ```matlab
-   run('Final.m');
-   ```
-4. To open the main Simulink model:
-   ```matlab
-   open_system('Final_sim.slx');
-   ```
-
----
 
 # 📄 Report
 
