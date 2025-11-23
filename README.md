@@ -87,7 +87,7 @@ simulateur-helico-S107/
 
 ---
 
-# 📄 Compte-rendu du projet
+## 📄 Compte-rendu du projet
 
 Le [compte-rendu](compte-rendu.pdf) décrit plus précisement toutes les méthodes utilisées et moyens mis en place pour en arriver là. 
 
